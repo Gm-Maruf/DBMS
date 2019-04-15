@@ -1,0 +1,56 @@
+CREATE DATABASE database_demo;
+
+use database_demo;
+CREATE TABLE employee(
+    person_name varchar(30),
+    street varchar(20), 
+    city varchar(20),
+    PRIMARY KEY(person_name)
+);
+
+
+USE database_demo;
+INSERT employee VALUES(
+	'Maruf', 'Padma Residential Area', 'Rajshahi' 
+);
+INSERT employee VALUES(
+	'Soumik', 'Dhanmondi 15', 'Dhaka' 
+);
+INSERT employee VALUES(
+	'Susmoy', 'Talaimari', 'Rajshahi' 
+);
+INSERT employee VALUES(
+	'Tipu', 'Kazir More', 'Naogaon' 
+);
+INSERT employee VALUES(
+	'Rabbi', 'Cantonment', 'Rajshahi' 
+);
+
+
+USE database_demo;
+CREATE TABLE works(
+    ID int,
+    person_name varchar(30),
+    company_name varchar(30),
+    salary int,
+    PRIMARY KEY(ID),
+    FOREIGN KEY(person_name) REFERENCES employee(person_name)
+);
+
+
+USE database_demo;
+INSERT works VALUES(
+	11, 'Maruf', 'WeDevs', 6000 
+);
+INSERT works VALUES(
+	22, 'Soumik', 'SkyLark', 2000 
+);
+INSERT works VALUES(
+	33, 'Susmoy', 'Toggi', 8000 
+);
+INSERT works VALUES(
+	44, 'Tipu', 'Xeron_IT', 1500 
+);
+INSERT works VALUES(
+	55, 'Rabbi', 'Star_Tech', 2500 
+);
