@@ -1,0 +1,18 @@
+**Selecting all employees name who lives in 'Rajshahi' city:
+USE database_demo;
+SELECT person_name FROM employee WHERE city = 'Rajshahi';
+
+
+***Selecting all persons whose salary is more than 5000:
+USE database_demo;
+SELECT person_name FROM works WHERE salary > 5000;
+
+
+***Select person_name and street address whose salary is more than 5000:
+USE database_demo;
+SELECT employee.person_name, employee.street FROM employee,works WHERE works.salary > 5000 AND works.person_name = employee.person_name;
+
+
+***Selecting person_name, street and company's city whose salary is more than 5000:
+USE database_demo;
+SELECT employee.person_name, employee.street, employee.city FROM employee,works WHERE works.salary > 5000 AND works.person_name = employee.person_name;
