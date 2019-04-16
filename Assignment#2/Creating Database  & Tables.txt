@@ -1,0 +1,96 @@
+CREATE DATABASE assignment2;
+
+USE assignment2;
+CREATE TABLE employee(
+    emoloyee_name varchar(30),
+    street varchar(20), 
+    city varchar(20),
+    PRIMARY KEY(emoloyee_name)
+);
+
+INSERT employee VALUES(
+	'Maruf', 'Padma Residential Area', 'Rajshahi' 
+);
+INSERT employee VALUES(
+	'Soumik', 'Dhanmondi 15', 'Dhaka' 
+);
+INSERT employee VALUES(
+	'Susmoy', 'Talaimari', 'Rajshahi' 
+);
+INSERT employee VALUES(
+	'Tipu', 'Kazir More', 'Naogaon' 
+);
+INSERT employee VALUES(
+	'Rabbi', 'Cantonment', 'Rajshahi' 
+);
+
+
+
+CREATE TABLE works(
+    employee_name varchar(50),
+    company_name varchar(50),
+    salary int,
+    FOREIGN KEY(employee_name) REFERENCES employee(employee_name)
+);
+
+INSERT works VALUES(
+	'Maruf', 'First Bank Corporation', 6000 
+);
+INSERT works VALUES(
+	'Soumik', 'Second Bank Corporation', 2000 
+);
+INSERT works VALUES(
+	'Susmoy', 'Third Bank Corporation', 8000 
+);
+INSERT works VALUES(
+	'Tipu', 'Fourth Bank Corporation', 1500 
+);
+INSERT works VALUES(
+	'Rabbi', 'Fifth Bank Corporation', 2500 
+);
+
+
+CREATE TABLE company(
+    company_name varchar(50),
+    city varchar(50),
+    PRIMARY KEY(company_name)
+);
+
+INSERT company VALUES(
+	'First Bank Corporation', 'Rajshahi' 
+);
+INSERT company VALUES(
+	'Second Bank Corporation', 'Dhaka' 
+);
+INSERT company VALUES(
+	'Third Bank Corporation', 'Rajshahi' 
+);
+INSERT company VALUES(
+	'Fourth Bank Corporation', 'Naogaon' 
+);
+INSERT company VALUES(
+	'Fifth Bank Corporation', 'Rajshahi' 
+);
+
+
+CREATE TABLE manages(
+    employee_name varchar(30),
+    manager_name varchar(30),
+    FOREIGN KEY(employee_name) REFERENCES employee(employee_name)
+);
+
+INSERT manages VALUES(
+	'Maruf', 'Maria' 
+);
+INSERT manages VALUES(
+	'Soumik', 'Farha' 
+);
+INSERT manages VALUES(
+	'Susmoy', 'Mou' 
+);
+INSERT manages VALUES(
+	'Tipu', 'Maisha' 
+);
+INSERT manages VALUES(
+	'Rabbi', 'Subah' 
+);
