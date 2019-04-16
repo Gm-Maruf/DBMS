@@ -1,0 +1,41 @@
+***Query-a:
+USE assignment2;
+
+SELECT employee.employee_name,employee.city 
+FROM employee,works 
+WHERE works.company_name='First Bank Corporation' AND works.employee_name=employee.employee_name;
+
+
+***Query-b:
+USE assignment2;
+
+SELECT employee.employee_name,employee.street,employee.city 
+FROM employee,works 
+WHERE works.company_name='First Bank Corporation' AND works.salary>10000 AND works.employee_name=employee.employee_name;
+
+
+***Query-c:
+USE assignment2;
+
+SELECT employee.employee_name
+FROM employee,works 
+WHERE works.company_name!='First Bank Corporation' AND works.employee_name=employee.employee_name;
+
+
+***Query-d:
+USE assignment2;
+
+SELECT employee_name
+FROM works
+WHERE salary> all(SELECT salary FROM works WHERE company_name='Small Bank Corporation');
+
+
+***Query-f:
+USE assignment2;
+
+SELECT company_name
+FROM works GROUP BY company_name 
+HAVING AVG(salary)>(SELECT AVG(salary)
+                    FROM works 
+                    WHERE company_name= 'First Bank Corporation')
+    
